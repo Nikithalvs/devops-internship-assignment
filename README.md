@@ -64,3 +64,27 @@ git commit -m "Resolved merge conflict"
 ```
 
 The conflict is now resolved.
+
+## Run and Deploy (Parts 2-4)
+
+Run the Flask app locally:
+
+```bash
+python app.py
+```
+
+Build the Docker image and run locally:
+
+```bash
+docker build -t flask-app .
+docker run -p 5000:5000 flask-app
+```
+
+Apply Kubernetes manifests (requires kubectl context):
+
+```bash
+kubectl apply -f kubernetes/deployment.yaml
+kubectl apply -f kubernetes/service.yaml
+```
+
+GitHub Actions CI/CD workflow is in `.github/workflows/ci-cd.yml` and runs on pushes to `main`.
