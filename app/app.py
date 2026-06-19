@@ -7,6 +7,10 @@ app = Flask(__name__)
 def home():
     return "DevOps Server Running!"
 
+@app.route('/get')
+def get_info():
+    return "DevOps Assessment Running!"
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
